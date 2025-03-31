@@ -21,9 +21,11 @@ jobs:
           - 5432:5432
         # Github Secrets에서 가져와서 env로 등록, Postgres 데이터 베이스 연결 설정
         env:
-          POSTGRES_USER: ${{ secrets.PG_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.PG_PASSWORD }}
-          POSTGRES_DB: ${{ secrets.PG_NAME }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         # 옵션으로 postgres의 연결 상태를 확인. 10초 단위로 5번 재시도. 5초간 기다림.
         options: >-
           --health-cmd pg_isready
@@ -53,15 +55,24 @@ jobs:
         run: |
           poetry install --no-interaction --no-root --with dev
 
-#      # isort를 사용하여 import 구문의 정렬 순서를 체크합니다.
-#      - name: Run isort (Import sorting)
-#        run: |
-#          poetry run isort . --check --diff
-#
+      #      # isort를 사용하여 import 구문의 정렬 순서를 체크합니다.
+      #      - name: Run isort (Import sorting)
+      #        run: |
+      #          poetry run isort . --check --diff
+      #
       # black을 사용하여 PEP8 코드스타일을 준수했는지 체크합니다.
       - name: Run black (Code formatting)
         run: |
           poetry run black . --check
+
+      # DB 환경변수 .env 생성/저장
+      - name: Run PostgreSQL setup
+        run: |
+          echo "DB_HOST=$DB_HOST" > .env
+          echo "DB_USER=$DB_USER" >> .env
+          echo "DB_PORT=$DB_PORT" >> .env
+          echo "DB_NAME=$DB_NAME" >> .env
+          echo "DB_PASSWORD=$DB_PASSWORD" >> .env
 
       # db 연결을 테스트
       - name: Wait for PostgreSQL
