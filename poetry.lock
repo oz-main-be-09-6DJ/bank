@@ -57,17 +57,6 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-restframework"
-version = "0.0.1"
-description = "django-restframework"
-optional = false
-python-versions = "*"
-groups = ["main"]
-files = [
-    {file = "django-restframework-0.0.1.tar.gz", hash = "sha256:2bec9265463693ada558ad9a58c31f6f3de005a932fbfeaadf983c5c9f3b7058"},
-]
-
-[[package]]
 name = "djangorestframework"
 version = "3.16.0"
 description = "Web APIs for Django, made easy."
@@ -425,4 +414,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "d4577a02eb0a1c11f5e1ce8146271b218d01ada9e3726af053815e69a56292af"
+content-hash = "4fd7cbcab075ca0f05eb756f58c4926ca3c5eee4e62517875145a0e08eefb3c2"
