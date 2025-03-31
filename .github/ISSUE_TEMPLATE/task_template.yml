@@ -1,0 +1,56 @@
+name: Task
+description: 일반적인 작업을 등록할 때 사용하세요.
+title: "[TASK] 작업 제목 작성"
+labels: [task]
+assignees: []
+
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: 작업 요약
+      description: 어떤 작업을 할 건지 한 줄로 요약해주세요.
+      placeholder: 예) 로그인 UI 수정
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: 작업 내용 상세
+      description: 작업의 목적과 내용, 예상 범위 등을 자세히 작성해주세요.
+      placeholder: |
+        - 로그인 버튼 위치 변경
+        - 배경색 수정 (#FFFFFF → #F0F0F0)
+        - 반응형 대응 필요
+    validations:
+      required: true
+
+  - type: textarea
+    id: deadline
+    attributes:
+      label: 마감일 또는 일정
+      description: 작업 완료 희망일이나 스프린트 정보를 입력해주세요.
+      placeholder: 예) 2025.04.10 또는 Sprint 3까지
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 작업 체크리스트
+      description: 작업 항목을 여러 개 나열할 수 있어요.
+      options:
+        - label: 작업 계획 수립
+        - label: 개발 완료
+        - label: 코드 리뷰
+        - label: 배포
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 우선순위
+      options:
+        - 낮음
+        - 보통
+        - 높음
+    validations:
+      required: true
