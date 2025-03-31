@@ -1,5 +1,5 @@
 name: Feature Request
-description: 새로운 기능을 제안하려면 이 템플릿을 사용하세요.
+description: 새로운 기능을 제안하려면 이 템플릿을 사용하세요!
 title: "[FEATURE] 기능 요청 제목 작성"
 labels: [enhancement]
 assignees: []
@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        새로운 아이디어를 공유해 주셔서 감사합니다! 아래 내용을 자세히 적어주세요.
+        새로운 아이디어를 공유해 주셔서 감사합니다! 아래 내용을 자세히 적어주세요!
 
   - type: input
     id: summary
