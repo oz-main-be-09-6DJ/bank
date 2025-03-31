@@ -60,10 +60,10 @@ jobs:
         run: |
           poetry run isort . --check --diff
 
-#      # black을 사용하여 PEP8 코드스타일을 준수했는지 체크합니다.
-#      - name: Run black (Code formatting)
-#        run: |
-#          poetry run black . --check
+      # black을 사용하여 PEP8 코드스타일을 준수했는지 체크합니다.
+      - name: Run black (Code formatting)
+        run: |
+          poetry run black . --check
 
       # DB 환경변수 .env 생성/저장
       - name: Run PostgreSQL setup
