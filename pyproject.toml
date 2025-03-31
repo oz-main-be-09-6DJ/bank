@@ -16,11 +16,17 @@ dependencies = [
     "isort (>=6.0.1,<7.0.0)",
 ]
 
-
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.group.dev.dependencies]
 drf-spectacular = "^0.28.0"
+
+[tool.isort]
+profile = "black"  # black과 같은 스타일 적용
+line_length = 88
+
+[tool.black]
+line-length = 88
 
