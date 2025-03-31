@@ -24,8 +24,12 @@ build-backend = "poetry.core.masonry.api"
 drf-spectacular = "^0.28.0"
 
 [tool.isort]
-profile = "black"  # black과 같은 스타일 적용
-line_length = 88
+profile = "black"  # Black 스타일을 따르도록 설정
+multi_line_output = 3  # Black의 자동 줄바꿈 스타일과 일치
+include_trailing_comma = true  # Black과 같은 trailing comma 사용
+line_length = 88  # Black과 동일한 줄 길이 제한 적용
+force_grid_wrap = 0  # 자동 줄바꿈 비활성화
+combine_as_imports = true  # as import 병합
 
 [tool.black]
 line-length = 88
