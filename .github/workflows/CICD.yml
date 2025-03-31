@@ -24,10 +24,11 @@ jobs:
           curl -sSL https://install.python-poetry.org | python3 -
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
-      - name: Install dependencies with Poetry
+      - name: Remove existing poetry.lock and install dependencies
         run: |
-          poetry lock
-          poetry install --with dev
+          rm -f poetry.lock  # 기존 poetry.lock 제거
+          poetry lock --no-update
+          poetry install --no-interaction --no-root
 
       - name: Run tests
         run: |
