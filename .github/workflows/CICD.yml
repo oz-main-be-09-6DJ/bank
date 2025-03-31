@@ -26,9 +26,7 @@ jobs:
 
       - name: Remove existing poetry.lock and install dependencies
         run: |
-          rm -f poetry.lock  # 기존 poetry.lock 제거
-          poetry lock --no-update
-          poetry install --no-interaction --no-root
+          poetry install --no-interaction --no-root --with dev
 
       - name: Run tests
         run: |
