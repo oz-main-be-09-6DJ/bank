@@ -1,10 +1,17 @@
 # 개발 환경 설정
-from django.urls import path, include
-from drf_spectacular.views import SpectacularSwaggerView
+from django.contrib import admin
+from django.urls import include, path
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
+)
 
 urlpatterns = [
-    path('api/schema/', include('drf_spectacular.urls')),  # OpenAPI 3.0 문서화
-    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),  # Swagger UI
-    path('admin/', include('django.contrib.admin.urls')),  # 관리 페이지
-    path('api/', include('yourapp.urls')),  # 앱의 URL들
+    path("admin/", admin.site.urls),  # 관리자페이지
+    path("schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        "swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"
+    ),
+    path("redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]
